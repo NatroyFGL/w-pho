@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W Pho – Authentic Vietnamese Food | South Melbourne</title>
+  <meta name="description" content="W Pho – Authentic Vietnamese restaurant in South Melbourne. Fresh pho, grilled meats, rice dishes and more. Family-run, affordable, full of flavour." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;600;700&family=Permanent+Marker&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ---- Delivery links (top right corner) ---- */
+    .delivery-links {
+      position: fixed;
+      top: 16px;
+      right: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .delivery-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .delivery-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .delivery-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+    .uber-btn { background: #06c167; }
+    .doordash-btn { background: #eb1700; }
+    @media (max-width: 640px) {
+      .delivery-links { top: 10px; right: 10px; gap: 6px; }
+      .delivery-btn { padding: 7px 10px; font-size: 0.72rem; }
+      .delivery-btn span { display: none; }
+      .delivery-btn svg { width: 18px; height: 18px; }
+    }
+
+    /* ---- Graffiti quote (top right of menu section) ---- */
+    #menu { position: relative; }
+    .menu-graffiti-quote {
+      position: absolute;
+      top: 120px;
+      right: 48px;
+      font-family: 'Permanent Marker', cursive;
+      font-size: 1.25rem;
+      color: #2e7d32;
+      transform: rotate(-4deg);
+      max-width: 260px;
+      text-align: right;
+      line-height: 1.35;
+      pointer-events: none;
+    }
+    @media (max-width: 900px) {
+      .menu-graffiti-quote {
+        position: static;
+        transform: rotate(-2deg);
+        text-align: center;
+        max-width: none;
+        margin-bottom: 6px;
+        font-size: 1.05rem;
+      }
+    }
+
+    /* ---- Menu price disclaimer note ---- */
+    .menu-price-note {
+      margin-top: 34px;
+      font-size: 0.78rem;
+      font-style: italic;
+      color: #8a8a8a;
+      text-align: center;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    /* ---- "+$1" tag on protein options ---- */
+    .plus-price {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #2e7d32;
+      background: rgba(46,125,50,0.1);
+      padding: 1px 6px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ---- Featured card without photo (Hainanese special) ---- */
+    .featured-card.no-photo {
+      display: flex;
+      align-items: stretch;
+    }
+    .featured-card.no-photo .featured-card-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+</head>
+<body>
+
+<!-- ===== SIDEBAR NAV ===== -->
+<nav class="sidebar" aria-label="Main Navigation">
+  <div class="sidebar-logo">
+    <div class="logo-icon">
+      <img src="images/logo.png" alt="W Pho Logo" class="logo-img" />
+    </div>
+    <div class="logo-text">W Pho<br><span style="font-weight:400;font-size:11px;opacity:0.7;">Vietnamese Food</span></div>
+  </div>
+  <ul class="nav-links">
+    <li>
+      <a href="#home" class="active">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="#menu">
+        <span class="nav-icon">🍜</span>
+        <span class="nav-label">Menu</span>
+      </a>
+    </li>
+    <li>
+      <a href="#location">
+        <span class="nav-icon">📍</span>
+        <span class="nav-label">Location</span>
+      </a>
+    </li>
+    <li>
+      <a href="#reviews">
+        <span class="nav-icon">⭐</span>
+        <span class="nav-label">Reviews</span>
+      </a>
+    </li>
+    <li>
+      <a href="#contact">
+        <span class="nav-icon">✉️</span>
+        <span class="nav-label">Contact</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ===== DELIVERY LINKS (TOP RIGHT) ===== -->
+<div class="delivery-links">
+  <a href="https://www.ubereats.com/au/store/w-pho-vietnamese/_k9FoZMHWWudNsjFKtG6TA"
+     target="_blank" rel="noopener noreferrer"
+     class="delivery-btn uber-btn" title="Order on Uber Eats" aria-label="Order on Uber Eats">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.2 5h2.4v5.2c0 1.1.7 1.8 1.8 1.8s1.8-.7 1.8-1.8V7H19v5.3c0 2.4-1.7 4-4 4s-4-1.6-4-4V7z"/></svg>
+    <span>Uber&nbsp;Eats</span>
+  </a>
+  <a href="https://www.doordash.com/store/w-pho-vietnamese-south-melbourne-36568501/84027546/"
+     target="_blank" rel="noopener noreferrer"
+     class="delivery-btn doordash-btn" title="Order on DoorDash" aria-label="Order on DoorDash">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.6 9.7c-1-1.9-3-3.2-5.2-3.2H2.1c-.5 0-.8.6-.4 1l2.6 2.6c.3.3.7.5 1.1.5h11.6c.7 0 1.3.6 1.3 1.3s-.6 1.4-1.3 1.4H9.2c-.5 0-.8.6-.4 1l2.6 2.6c.3.3.7.5 1.1.5h4.6c3.4 0 6-3 5.5-6.5-.1-.4-.1-.8 0-1.2z"/></svg>
+    <span>DoorDash</span>
+  </a>
+</div>
+
+<!-- ===== PHONE ORDER BUTTON ===== -->
+<a class="phone-order-btn" href="tel:0427100163" title="Call to order and pick up">
+  <span class="phone-icon">📞</span>
+  <span class="btn-label">Phone Order &amp; Pickup</span>
+</a>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main-content">
+
+  <!-- HOME / HERO -->
+  <section id="home">
+    <div class="slideshow-container">
+
+      <!-- Slide 1 – Food spread -->
+      <div class="slide active" style="background-image: url('images/hero-spread.png');"></div>
+      <!-- Slide 2 – Pho beef -->
+      <div class="slide" style="background-image: url('images/pho-beef.png');"></div>
+      <!-- Slide 3 – Restaurant exterior -->
+      <div class="slide" style="background-image: url('images/restaurant-exterior.png');"></div>
+
+    </div>
+
+    <!-- Rotating text overlay (CSS transitions handle slide change, JS cycles text) -->
+    <div class="hero-overlay">
+      <div class="hero-text-box" id="hero-text-box">
+        <div class="hero-eyebrow" id="hero-eyebrow">South Melbourne</div>
+        <h1 class="hero-headline" id="hero-headline">A Vietnamese Food Venue<br>in South Melbourne</h1>
+        <p class="hero-sub" id="hero-sub">Your go-to lunch spot in South Melbourne. Real Vietnamese food, big portions, done fast — perfect for your work break without the hefty price tag.</p>
+        <div class="hero-badge">
+          <span>⭐⭐⭐⭐⭐</span>
+          <span>5-Star Google Reviews · Authentic Pho Restaurant</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-indicators">
+      <button class="indicator active" aria-label="Slide 1"></button>
+      <button class="indicator" aria-label="Slide 2"></button>
+      <button class="indicator" aria-label="Slide 3"></button>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section">
+    <div class="menu-graffiti-quote">your new local vietnamese eatery</div>
+    <p class="section-subtitle">What We Serve</p>
+    <h2 class="section-title">Our Menu</h2>
+    <div class="section-divider"></div>
+
+    <!-- Category Nav -->
+    <div class="menu-cat-nav" role="tablist">
+      <button class="cat-btn featured-btn active" data-cat="featured" role="tab">✨ Featured</button>
+      <button class="cat-btn" data-cat="entree" role="tab">Entrée</button>
+      <button class="cat-btn" data-cat="soups" role="tab">Soups</button>
+      <button class="cat-btn" data-cat="pho" role="tab">Phở</button>
+      <button class="cat-btn" data-cat="noodle-soup" role="tab">Noodle Soup</button>
+      <button class="cat-btn" data-cat="egg-noodle-soup" role="tab">Egg Noodle &amp; Veggie Soup</button>
+      <button class="cat-btn" data-cat="rice" role="tab">Rice Dishes</button>
+      <button class="cat-btn" data-cat="fried-rice" role="tab">Fried Rice</button>
+      <button class="cat-btn" data-cat="dried-noodles" role="tab">Dried Egg Noodles &amp; Veggies</button>
+      <button class="cat-btn" data-cat="vermicelli" role="tab">Vermicelli Noodle &amp; Salad Bowl</button>
+      <button class="cat-btn" data-cat="stir-fried" role="tab">Stir Fried</button>
+      <button class="cat-btn" data-cat="deep-fried" role="tab">Deep Fried</button>
+      <button class="cat-btn" data-cat="broccoli" role="tab">Chinese Broccoli</button>
+      <button class="cat-btn" data-cat="stir-noodles" role="tab">Stir Fried Noodles</button>
+      <button class="cat-btn" data-cat="slaw" role="tab">Vietnamese Slaw</button>
+      <button class="cat-btn" data-cat="drinks" role="tab">Drinks</button>
+    </div>
+
+    <!-- FEATURED -->
+    <div id="cat-featured" class="menu-panel active">
+      <div class="menu-note">Chef's picks — the dishes our regulars keep coming back for.</div>
+      <div class="featured-grid">
+
+        <div class="featured-card">
+          <img src="images/pho-beef.png" alt="Sliced Beef Pho" loading="lazy" />
+          <div class="featured-card-info">
+            <div class="featured-badge">Signature</div>
+            <h4>Sliced Beef Phở</h4>
+            <p>Slow-cooked beef broth, rice noodles, fresh herbs &amp; bean sprouts</p>
+            <p style="margin-top:8px;font-weight:700;color:var(--green-mid);">$17</p>
+          </div>
+        </div>
+
+        <div class="featured-card">
+          <img src="images/pork-chop-rice.png" alt="Grilled Pork Chop Egg Rice" loading="lazy" />
+          <div class="featured-card-info">
+            <div class="featured-badge">Crowd Favourite</div>
+            <h4>Grilled Pork Chop &amp; Egg Rice</h4>
+            <p>Crispy pork chop, steamed rice, fried egg, fresh pickles &amp; sweet fish sauce</p>
+            <p style="margin-top:8px;font-weight:700;color:var(--green-mid);">$17</p>
+          </div>
+        </div>
+
+        <div class="featured-card">
+          <img src="images/spring-rolls.png" alt="Crispy Spring Rolls" loading="lazy" />
+          <div class="featured-card-info">
+            <div class="featured-badge">Starter</div>
+            <h4>Crispy Spring Rolls (6 pcs)</h4>
+            <p>Chicken filling, served with mint, lettuce &amp; sweet chilli dipping sauce</p>
+            <p style="margin-top:8px;font-weight:700;color:var(--green-mid);">$12</p>
+          </div>
+        </div>
+
+        <div class="featured-card">
+          <img src="images/char-kway-teow.png" alt="Char Kway Teow Chicken" loading="lazy" />
+          <div class="featured-card-info">
+            <div class="featured-badge">Wok Special</div>
+            <h4>Char Kway Teow – Chicken</h4>
+            <p>Flat rice noodles wok-tossed with egg, bean sprouts, capsicum &amp; soy</p>
+            <p style="margin-top:8px;font-weight:700;color:var(--green-mid);">$20</p>
+          </div>
+        </div>
+
+        <div class="featured-card no-photo">
+          <div class="featured-card-info">
+            <div class="featured-badge">Lunch Deal · 10:30am–4pm</div>
+            <h4>Hainanese Chicken Special</h4>
+            <p>Poached chicken on fragrant rice with ginger-shallot sauce — special deal, 10:30am to 4pm only</p>
+            <p style="margin-top:8px;font-weight:700;color:var(--green-mid);">$14</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ENTREE -->
+    <div id="cat-entree" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-items">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Crispy Spring Rolls (6 pcs)</div>
+              <div class="menu-item-desc">Chicken / Seafood / Vegetarian</div>
+            </div>
+            <div class="menu-item-price">$12</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">San Choi Bao</div>
+              <div class="menu-item-desc">Chicken or Tofu</div>
+            </div>
+            <div class="menu-item-price">$8.50</div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Salt &amp; Pepper Tofu <span class="veg-icon">V</span></div>
+            </div>
+            <div class="menu-item-price">$10</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item-name">Salt &amp; Pepper Squid</div></div>
+            <div class="menu-item-price">$12</div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item-name">Salt &amp; Pepper Chicken Ribs</div></div>
+            <div class="menu-item-price">$12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOUPS -->
+    <div id="cat-soups" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">$8.50</div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div><div class="menu-item-name">Wonton &amp; Veggie Soup <span class="veg-icon">V</span></div></div>
+          </div>
+          <div class="menu-item">
+            <div><div class="menu-item-name">Chicken &amp; Sweet Corn Soup</div></div>
+          </div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Tomyum Soup</div>
+              <div class="menu-item-desc">Tofu / Beef / Chicken / Prawn</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHO -->
+    <div id="cat-pho" class="menu-panel">
+      <div class="menu-note">All phở comes with slow-cooked beef broth, served with bean sprouts &amp; basil.</div>
+      <div class="menu-group">
+        <div class="menu-group-price">$17</div>
+        <div class="menu-items">
+          <div class="menu-item"><div><div class="menu-item-name">Sliced Beef</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Sliced Beef &amp; Beef Brisket</div></div><div class="menu-item-price">$18</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Sliced Beef &amp; Beef Balls</div></div><div class="menu-item-price">$18</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Shredded Boiled Chicken</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Crispy Maryland Chicken</div></div><div class="menu-item-price">$18</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Tofu &amp; Veggies <span class="veg-icon">V</span></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOODLE SOUP -->
+    <div id="cat-noodle-soup" class="menu-panel">
+      <div class="menu-note">All noodle soups include seasonal vegetables.</div>
+      <div class="menu-group">
+        <div class="menu-group-title">Laksa Noodle Soup</div>
+        <div class="menu-group-price">$18 · Beef / Chicken / Prawn / Tofu / Seafood</div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-title">Tomyum Vermicelli Noodle Soup</div>
+        <div class="menu-group-price">$17 · Beef / Chicken / Prawn / Tofu / Seafood</div>
+      </div>
+    </div>
+
+    <!-- EGG NOODLE & VEGGIE SOUP -->
+    <div id="cat-egg-noodle-soup" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-title">Egg Noodle &amp; Veggie Soup <span class="veg-icon">V</span></div>
+        <div class="menu-group-price">$17</div>
+        <div class="menu-options">
+          <strong>Choose protein:</strong> Wonton · Tofu &amp; Veg · Prawn · Seafood · Wonton &amp; BBQ Pork · Grilled Pork Chop · Grilled Chicken · Crispy Maryland Chicken
+        </div>
+      </div>
+    </div>
+
+    <!-- RICE DISHES -->
+    <div id="cat-rice" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">$17 each</div>
+        <div class="menu-items">
+          <div class="menu-item"><div><div class="menu-item-name">Grilled Pork Chop &amp; Fried Egg with Steamed Rice</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Grilled Chicken &amp; Fried Egg with Steamed Rice</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Hainanese Chicken on Rice</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Marinated Diced Beef on Tomato Fried Rice</div></div><div class="menu-item-price">$18</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Crispy Skin Chicken on Tomato Fried Rice</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Salt &amp; Pepper Chicken on Tomato Fried Rice</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Minced Chicken, Chilli &amp; Basil Leaves with Fried Egg &amp; Steamed Rice</div></div><div class="menu-item-price">$18</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRIED RICE -->
+    <div id="cat-fried-rice" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">$18</div>
+        <div class="menu-options" style="margin-bottom:18px;">
+          <strong>Choose protein:</strong> Tofu &amp; Veg · Prawn · Chicken · Prawn &amp; BBQ Pork · Chicken &amp; Prawn · Chicken &amp; BBQ Pork · Chicken or BBQ Pork
+        </div>
+        <div class="menu-items">
+          <div class="menu-item"><div><div class="menu-item-name">Salted Fish &amp; Chicken Fried Rice</div></div><div class="menu-item-price">$19</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Thai Fried Rice</div><div class="menu-item-desc">Seafood / Tofu / Pork / Chicken</div></div><div class="menu-item-price">$18</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Nasi Goreng</div><div class="menu-item-desc">Chicken / Pork / Tofu / Seafood / Prawn</div></div><div class="menu-item-price">$19</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRIED EGG NOODLES & VEGGIES -->
+    <div id="cat-dried-noodles" class="menu-panel">
+      <div class="menu-note">Served with a side bowl of chicken broth soup.</div>
+      <div class="menu-group">
+        <div class="menu-group-title">Dried Egg Noodles &amp; Veggies</div>
+        <div class="menu-group-price">$17</div>
+        <div class="menu-options" style="margin-bottom:18px;">
+          <strong>Choose protein:</strong> BBQ Pork · Grilled Chicken · Grilled Pork Chop · Crispy Maryland Chicken · Tofu &amp; Veggies <span class="plus-price">+$1</span> · Marinated Diced Beef <span class="plus-price">+$1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VERMICELLI BOWL -->
+    <div id="cat-vermicelli" class="menu-panel">
+      <div class="menu-note">Served with dipping sauce, peanuts, fried shallots, pickled carrots, lettuce, bean sprouts and lettuce. Sauce: Fish Sauce or Soy Sauce.</div>
+      <div class="menu-group">
+        <div class="menu-group-price">$17</div>
+        <div class="menu-items">
+          <div class="menu-item"><div><div class="menu-item-name">Spring Rolls</div><div class="menu-item-desc">Chicken / Seafood / Vegetarian</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Grilled Pork Chop</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Grilled Chicken</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Stir Fried Chilli &amp; Lemongrass</div><div class="menu-item-desc">Beef / Chicken / Prawn / Tofu</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Fried Tofu <span class="veg-icon">V</span></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STIR FRIED -->
+    <div id="cat-stir-fried" class="menu-panel">
+      <div class="menu-note">Served with delicious seasonal veggies.</div>
+      <div class="menu-group">
+        <div class="menu-group-price">$17 with Rice &nbsp;|&nbsp; $21 Main Only</div>
+        <div class="stir-fry-box">
+          <div class="stir-fry-row">
+            <div class="stir-fry-col">
+              <h5>Choose Protein</h5>
+              <ul>
+                <li>Beef</li>
+                <li>Chicken</li>
+                <li>Tofu &amp; Veg <span class="veg-icon">V</span></li>
+                <li>Fish</li>
+                <li>Prawn</li>
+                <li>Seafood</li>
+              </ul>
+            </div>
+            <div class="stir-fry-col">
+              <h5>Choose Sauce</h5>
+              <ul>
+                <li>Black Bean</li>
+                <li>Satay</li>
+                <li>Oyster</li>
+                <li>Garlic</li>
+                <li>Hot Black Pepper</li>
+                <li>Chilli Lemongrass</li>
+                <li>Mongolian</li>
+                <li>Ginger &amp; Shallot</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEEP FRIED -->
+    <div id="cat-deep-fried" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">$20</div>
+        <div class="menu-items">
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Salt &amp; Pepper</div>
+              <div class="menu-item-desc">Squid / Prawn / Pork / Chicken Ribs / Fish / Tofu</div>
+            </div>
+          </div>
+          <div class="menu-item"><div><div class="menu-item-name">Lemon Chicken</div></div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Honey Chicken</div></div></div>
+          <div class="menu-item">
+            <div>
+              <div class="menu-item-name">Sweet &amp; Sour</div>
+              <div class="menu-item-desc">Chicken / Pork / Prawn / Fish</div>
+            </div>
+          </div>
+          <div class="menu-item"><div><div class="menu-item-name">Honey Soy Chicken</div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STIR FRIED CHINESE BROCCOLI -->
+    <div id="cat-broccoli" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">Please ask our staff for today's price</div>
+        <div class="menu-options">With your choice of garlic or oyster sauce.</div>
+      </div>
+    </div>
+
+    <!-- STIR FRIED NOODLES -->
+    <div id="cat-stir-noodles" class="menu-panel">
+      <div class="menu-note">All noodle dishes come with seasonal veggies. $20 each.</div>
+      <div class="menu-group">
+        <div class="menu-group-title">Char Kway Teow <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(flat rice noodles)</span> <span class="veg-icon">V</span></div>
+        <div class="menu-options" style="margin-bottom:18px;">Chicken · Prawn · Seafood · Beef · Tofu &amp; Veggies</div>
+
+        <div class="menu-group-title">Singapore Noodles <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(vermicelli)</span> <span class="veg-icon">V</span></div>
+        <div class="menu-options" style="margin-bottom:18px;">Chicken · Tofu &amp; Veggies · Prawn · Seafood · BBQ Pork · BBQ Pork &amp; Prawn · BBQ Pork &amp; Chicken</div>
+
+        <div class="menu-group-title">Pad Thai <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(rice noodles)</span> <span class="veg-icon">V</span></div>
+        <div class="menu-options" style="margin-bottom:18px;">Seafood · Prawn · Chicken · Beef · Tofu &amp; Veggies</div>
+
+        <div class="menu-group-title">Hokkien Noodles <span style="font-size:0.8rem;font-weight:400;color:var(--text-light);">(chewy egg noodles)</span> <span class="veg-icon">V</span></div>
+        <div class="menu-options" style="margin-bottom:18px;">Seafood · Prawn · Chicken · Beef · Tofu &amp; Veggies</div>
+
+        <div class="menu-group-title">Egg Noodles <span class="veg-icon">V</span></div>
+        <div class="menu-options">Seafood · Prawn · Chicken · Beef · Tofu &amp; Veggies</div>
+      </div>
+    </div>
+
+    <!-- VIETNAMESE SLAW -->
+    <div id="cat-slaw" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-group-price">$19</div>
+        <div class="menu-options">
+          <strong>Choose protein:</strong> Tofu <span class="veg-icon">V</span> · Chicken · Prawn · BBQ Pork &amp; Prawn
+        </div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div id="cat-drinks" class="menu-panel">
+      <div class="menu-group">
+        <div class="menu-items">
+          <div class="menu-item"><div><div class="menu-item-name">Soft Drink Cans</div></div><div class="menu-item-price">$4</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Bottle of Water</div></div><div class="menu-item-price">$3.50</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Bottle of Sparkling Water</div></div><div class="menu-item-price">$4.50</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Ginger Beer</div></div><div class="menu-item-price">$4</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Vietnamese Iced Coffee</div></div><div class="menu-item-price">$8</div></div>
+          <div class="menu-item"><div><div class="menu-item-name">Coconut Water</div></div><div class="menu-item-price">$6</div></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="menu-price-note">
+      A quick note: We sometimes update our menu so prices shown here are a guide only
+      (last updated on 12/07/2026) — the in-store price is the final one. Thanks for understanding!
+    </p>
+
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="section">
+    <p class="section-subtitle">Find Us</p>
+    <h2 class="section-title">Location</h2>
+    <div class="section-divider"></div>
+
+    <div class="location-layout">
+      <div class="location-info">
+        <h3>W Pho – South Melbourne</h3>
+
+        <div class="location-detail">
+          <span class="icon">📍</span>
+          <div class="text">
+            <strong>Address</strong>
+            Ground Floor, 51–57 Buckhurst Street<br>
+            South Melbourne VIC 3205
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <span class="icon">📞</span>
+          <div class="text">
+            <strong>Phone</strong>
+            <a href="tel:0427100163" style="color:var(--green-mid);text-decoration:none;font-weight:600;">0427 100 163</a>
+          </div>
+        </div>
+
+        <div class="location-detail">
+          <span class="icon">🚗</span>
+          <div class="text">
+            <strong>Getting Here</strong>
+            Corner of Buckhurst St &amp; George St, South Melbourne. Street parking available. Nearby tram &amp; bus stops.
+          </div>
+        </div>
+
+        <a class="directions-btn"
+           href="https://www.google.com/maps/place/51-57+Buckhurst+St,+South+Melbourne+VIC+3205"
+           target="_blank"
+           rel="noopener noreferrer">
+          🗺️ Get Directions
+        </a>
+      </div>
+
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.3!2d144.9570!3d-37.8320!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f96a47%3A0x0!2s51-57+Buckhurst+St%2C+South+Melbourne+VIC+3205!5e0!3m2!1sen!2sau!4v1"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="W Pho Location Map">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="section">
+    <p class="section-subtitle">What People Say</p>
+    <h2 class="section-title">Reviews</h2>
+    <div class="section-divider"></div>
+
+    <div class="reviews-slideshow-wrapper">
+      <!-- Summary bar -->
+      <div class="reviews-summary">
+        <div class="reviews-summary-stars">★★★★★</div>
+        <div class="reviews-summary-text">
+          <strong>5.0</strong> · Based on Google Reviews
+        </div>
+        <a href="https://www.google.com/maps/search/W+Pho+South+Melbourne"
+           target="_blank" rel="noopener noreferrer" class="google-link">
+          View all on Google Maps ↗
+        </a>
+      </div>
+
+      <!-- Slideshow -->
+      <div class="review-slideshow">
+        <div class="review-slides-track" id="review-track">
+
+          <!-- Review 1 -->
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-header">
+                <div class="reviewer-avatar" style="background:#e53935;">B</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Bolotuya Batzorig</div>
+                  <div class="reviewer-meta">2 reviews · 3 weeks ago</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">
+                "This is definitely a hidden gem in South Melbourne! Absolutely fantastic. The food is delicious and easily one of the best Vietnamese meals I've ever had in Melbourne. The menu is extensive, with many choices, and the portions are generous…"
+              </p>
+              <div class="review-screenshot">
+                <img src="images/review1.png" alt="Review by Bolotuya Batzorig" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-header">
+                <div class="reviewer-avatar" style="background:#1565c0;">H</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">Ho Mark</div>
+                  <div class="reviewer-meta">Local Guide · 24 reviews · one month ago</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">
+                "The pho and rice dishes here are simple and affordable. I ordered pho with Maryland-style crispy fried chicken. It was delicious and filling. The staff were also friendly. I would recommend it to anyone looking for cheap Vietnamese food…"
+              </p>
+              <div class="review-screenshot">
+                <img src="images/review2.png" alt="Review by Ho Mark" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-slide">
+            <div class="review-card">
+              <div class="review-header">
+                <div class="reviewer-avatar" style="background:#2e7d32;">S</div>
+                <div class="reviewer-info">
+                  <div class="reviewer-name">SC</div>
+                  <div class="reviewer-meta">Local Guide · 34 reviews · 3 months ago</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+              </div>
+              <p class="review-text">
+                "The food was delicious. The staff were friendly. The portions were very generous! The pho was very well-cooked and flavorful. The tofu with lime and chili sauce was also very good. I came back and the laksa was even better. But the tom yum soup was my favourite…"
+              </p>
+              <div class="review-screenshot">
+                <img src="images/review3.png" alt="Review by SC" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Controls -->
+        <button class="review-prev" id="review-prev" aria-label="Previous review">&#8592;</button>
+        <button class="review-next" id="review-next" aria-label="Next review">&#8594;</button>
+      </div>
+
+      <!-- Dots -->
+      <div class="review-dots">
+        <button class="review-dot active" data-slide="0"></button>
+        <button class="review-dot" data-slide="1"></button>
+        <button class="review-dot" data-slide="2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <p class="section-subtitle" style="color:rgba(255,255,255,0.5);">Get in Touch</p>
+    <h2 class="section-title">Contact Us</h2>
+    <div class="section-divider"></div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📞</div>
+        <h4>Phone</h4>
+        <a href="tel:0427100163">0427 100 163</a>
+        <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin-top:8px;font-weight:400;">Call to order &amp; pick up</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <h4>Email</h4>
+        <a href="mailto:nhiphan0912@gmail.com">nhiphan0912@gmail.com</a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📘</div>
+        <h4>Facebook</h4>
+        <a href="https://www.facebook.com/NhiUcVlog?locale=vi_VN"
+           target="_blank"
+           rel="noopener noreferrer">
+          NhiUcVlog
+        </a>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h4>Address</h4>
+        <p>Ground Floor, 51–57 Buckhurst St<br>South Melbourne VIC 3205</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 <span>W Pho Vietnamese Restaurant</span> · South Melbourne · All rights reserved</p>
+    <p style="margin-top:6px;">Some dishes may contain traces of nuts. Please inform our staff of any dietary requirements or allergies.</p>
+  </footer>
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
